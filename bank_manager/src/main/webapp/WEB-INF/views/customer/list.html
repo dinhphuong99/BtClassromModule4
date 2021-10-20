@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Management</title>
+</head>
+<body>
+<h3>Customer Management</h3>
+<p>
+    <a th:href="@{/customers/create}">
+        Add new Music
+    </a>
+</p>
+<p th:text = "${mes}"></p>
+<table id = "products">
+    <thead>
+    <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Balance</th>
+        <th colspan="5" style="text-align: center">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block  th:each="customer : ${customerList}">
+        <tr>
+            <td th:text="${customer.fullName}"></td>
+            <td th:text="${customer.email}"></td>
+            <td th:text="${customer.phone}"></td>
+            <td th:text="${customer.address}"></td>
+            <td th:text="${customer.balance}"></td>
+
+            <td><a th:href="@{/deposit/create}">Deposit</a></td>
+            <td><a th:href="@{/withdraw/create}">Withdraw</a></td>
+
+        </tr>
+    </th:block>
+
+    </tbody>
+</table>
+
+</body>
+</html>
